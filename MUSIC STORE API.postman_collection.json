@@ -1,0 +1,1205 @@
+{
+	"info": {
+		"_postman_id": "c8de375c-8c89-4325-b378-df68bc48f8ab",
+		"name": "MUSIC STORE API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8028248"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "Find All",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_categories\": [1,2],\r\n    \"_search\": \"Pia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_prod}}/products/find-all",
+							"host": [
+								"{{url_prod}}"
+							],
+							"path": [
+								"products",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_prod}}/products/6",
+							"host": [
+								"{{url_prod}}"
+							],
+							"path": [
+								"products",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/delete/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "/categories",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_prod}}/categories",
+							"host": [
+								"{{url_prod}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brands",
+			"item": [
+				{
+					"name": "brands",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_prod}}/brands",
+							"host": [
+								"{{url_prod}}"
+							],
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJVU0VSIn1dLCJmaXJzdE5hbWUiOiJ1c2VyIiwibGFzdE5hbWUiOiJ1c2VyIiwic3ViIjoidXNlcjNAZ21haWwuY29tIiwiaWF0IjoxNzQxNjcwNTIyLCJleHAiOjE3NDE3NTY5MjJ9.hfdfvzjbIFJcJr9D2faYEq7QiqDvfcyHQ0xZdXNe67o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsZmFyYXRlQGdtYWlsLmNvbSIsImlhdCI6MTc0MTE0Nzg4MCwiZXhwIjoxNzQxMjM0MjgwfQ.GGeGqBX5h0_Sn0ZMPcy3ob7gRVqSYo8ekQwQS_CEpoM",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/find-by-email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"find-by-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZmlyc3ROYW1lIjoiYWRtaW4iLCJsYXN0TmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW5AZW1haWwuY29tIiwiaWF0IjoxNzQxNjUyNjg5LCJleHAiOjE3NDE3MzkwODl9.jOgmwWd1B_pJEvLs67xdbIyW2J-I9_U_hqvQ-_WwXqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsZmFyYXRlQGdtYWlsLmNvbSIsImlhdCI6MTc0MTE0Nzg4MCwiZXhwIjoxNzQxMjM0MjgwfQ.GGeGqBX5h0_Sn0ZMPcy3ob7gRVqSYo8ekQwQS_CEpoM",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_roles\": [1],\r\n    \"_search\": \"pedro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/backoffice/users/find-all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"backoffice",
+								"users",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XSwiZmlyc3ROYW1lIjoiYWRtaW4iLCJsYXN0TmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW5AZW1haWwuY29tIiwiaWF0IjoxNzQxNjUyNjg5LCJleHAiOjE3NDE3MzkwODl9.jOgmwWd1B_pJEvLs67xdbIyW2J-I9_U_hqvQ-_WwXqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"userId\": 2,\r\n   \"roleId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/backoffice/users/change-role",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"backoffice",
+								"users",
+								"change-role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"admin@email.com\",\r\n   \"password\": \"admin123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ejemplo response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"email\": \"admin@email.com\",\r\n   \"password\": \"admin123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Mar 2025 15:37:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJsYXN0TmFtZSI6ImFkbWluIiwicm9sZSI6W3siYXV0aG9yaXR5IjoiQURNSU4ifV0sImZpcnN0TmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW5AZW1haWwuY29tIiwiaWF0IjoxNzQyMTM5NDU4LCJleHAiOjE3NDIyMjU4NTh9.tvn413MTg5hsdVBQSc_AJy03fNv4bwxQK9AkStTnzBE\",\n        \"role\": \"ADMIN\",\n        \"expiration\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"user3@gmail.com\",\r\n   \"lastName\": \"user\",\r\n   \"firstName\": \"user\",\r\n   \"password\": \"admin123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HDU 23 - Registrar producto",
+			"item": [
+				{
+					"name": "Endpoint Subir Imagen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Alan/OneDrive/Escritorio/Un atardecer sin cables.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/upload/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"upload",
+								"image"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ejemplo response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Alan/Downloads/piano imagen.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/upload/image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"upload",
+										"image"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 03:52:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"url\": \"https://res.cloudinary.com/dwzugg5gm/image/upload/v1742010747/ilpjjipwc7udmhivpyue.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Endpoint Guardar Producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": [
+						{
+							"name": "ejemplo response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Guitarra Acústica Fender CD-60\",\r\n  \"imageUrl\": \"aqui la url del producto dado por el endpoint de subir imagen\",\r\n  \"price\": 299.99,\r\n  \"description\": \"Guitarra acústica con cuerpo de caoba y tapa de abeto, ideal para principiantes y músicos intermedios.\",\r\n  \"categoryId\": 2,\r\n  \"brandId\": 4,\r\n  \"model\": \"CD-60\",\r\n  \"productCondition\": \"Nuevo\",\r\n  \"origin\": \"Estados Unidos\",\r\n  \"launchYear\": \"2023\",\r\n  \"material\": \"Caoba y abeto\",\r\n  \"size\": \"20x40x70\",\r\n  \"recommendedUse\": \"Profesional\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/products/save",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"save"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 04:07:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"category\": \"Baterias\",\n    \"name\": \"Guitarra Acústica Fender CD-60\",\n    \"mainImage\": \"aqui la url del producto dado por el endpoint de subir imagen\",\n    \"description\": \"Guitarra acústica con cuerpo de caoba y tapa de abeto, ideal para principiantes y músicos intermedios.\",\n    \"price\": 299.99,\n    \"brand\": \"Tama\",\n    \"model\": \"CD-60\",\n    \"product_condition\": \"Nuevo\",\n    \"origin\": \"Estados Unidos\",\n    \"launchYear\": \"2023\",\n    \"size\": \"20x40x70\",\n    \"material\": \"Caoba y abeto\",\n    \"recommendedUse\": \"Profesional\",\n    \"secondaryImages\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Endpoint obtener todas las categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": [
+						{
+							"name": "ejemplo response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 04:10:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Guitarras\",\n            \"imageUrl\": \"https://res.cloudinary.com/dqc7cuyox/image/upload/fl_preserve_transparency/v1741105007/CGuitarras_oney1g.jpg?_s=public-apps\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Baterias\",\n            \"imageUrl\": \"https://res.cloudinary.com/dqc7cuyox/image/upload/fl_preserve_transparency/v1741105104/CBaterias_twvhnx.jpg?_s=public-apps\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Pianos\",\n            \"imageUrl\": \"https://res.cloudinary.com/dqc7cuyox/image/upload/fl_preserve_transparency/v1741105173/CPianos_ktcukz.jpg?_s=public-apps\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Bajos\",\n            \"imageUrl\": \"https://res.cloudinary.com/dqc7cuyox/image/upload/fl_preserve_transparency/v1741105226/CBajos_y0dbkl.jpg?_s=public-apps\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Electricos\",\n            \"imageUrl\": \"https://res.cloudinary.com/dqc7cuyox/image/upload/fl_preserve_transparency/v1741105287/CElectricos_zzifvp.jpg?_s=public-apps\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Accesorios\",\n            \"imageUrl\": \"https://res.cloudinary.com/dqc7cuyox/image/upload/fl_preserve_transparency/v1741105359/CAccesorios_erfr38.jpg?_s=public-apps\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Endpoint obtener todas las marcas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": [
+						{
+							"name": "ejemplo response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/brands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"brands"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Mar 2025 04:15:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Pearl\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Roland\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Fender\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Tama\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Sony\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Gibson\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Hohner\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Steinway & Sons\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Otras\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Pasos para usar los endpoints que requieres rol de admin:\n\n1. Usar el endpoint /auth/login con un body de user y password del admin0 para loguearse en el back y luego copiar el token generado.\n    \n2. en la peticion que requiera un endpoint restringido a rol de admin usar el Token generado y definirlo en la seccion Autorizathion como 'Bearer Token'\n    \n3. ya se deberia dar acceso al endpoint"
+		},
+		{
+			"name": "reservations",
+			"item": [
+				{
+					"name": "Get Reservations By Product Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/reservations/products/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reservations",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Updatear Producto",
+			"item": [
+				{
+					"name": "Endpoint Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJsYXN0TmFtZSI6ImFkbWluIiwicm9sZSI6W3siYXV0aG9yaXR5IjoiQURNSU4ifV0sImZpcnN0TmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW5AZW1haWwuY29tIiwiaWF0IjoxNzQyMzY1NDU2LCJleHAiOjE3NDI0NTE4NTZ9.w4UDnBi3LPjuyM_GZkmVKldw_ITyniJejxR-tN1oXIo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 5,\r\n  \"name\": \"Smartphone X100\",\r\n  \"imageUrl\": \"https://example.com/images/smartphone-x100.jpg\",\r\n  \"price\": 799.99,\r\n  \"description\": \"Un smartphone de última generación con cámara de alta resolución y batería de larga duración.\",\r\n  \"categoryId\": 2,\r\n  \"brandId\": 5,\r\n  \"model\": \"X100 Pro\",\r\n  \"productCondition\": \"Nuevo\",\r\n  \"origin\": \"China\",\r\n  \"launchYear\": \"2024\",\r\n  \"material\": \"Aluminio y vidrio\",\r\n  \"size\": \"6.5 pulgadas\",\r\n  \"recommendedUse\": \"Uso diario, fotografía y gaming\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_prod}}/products/update",
+							"host": [
+								"{{url_prod}}"
+							],
+							"path": [
+								"products",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ejemplo response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 5,\r\n  \"name\": \"Smartphone X100\",\r\n  \"imageUrl\": \"https://example.com/images/smartphone-x100.jpg\",\r\n  \"price\": 799.99,\r\n  \"description\": \"Un smartphone de última generación con cámara de alta resolución y batería de larga duración.\",\r\n  \"categoryId\": 2,\r\n  \"brandId\": 5,\r\n  \"model\": \"X100 Pro\",\r\n  \"productCondition\": \"Nuevo\",\r\n  \"origin\": \"China\",\r\n  \"launchYear\": \"2024\",\r\n  \"material\": \"Aluminio y vidrio\",\r\n  \"size\": \"6.5 pulgadas\",\r\n  \"recommendedUse\": \"Uso diario, fotografía y gaming\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_prod}}/products/update",
+									"host": [
+										"{{url_prod}}"
+									],
+									"path": [
+										"products",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Mar 2025 06:24:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\"mensaje\" : \"El producto fue modificado\"}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Create Booking",
+			"item": [
+				{
+					"name": "POST crear reservacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": [
+						{
+							"name": "Bad Response(La fecha ya fue tomada por alguien más)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"startDate\": \"2025-03-21\",\r\n    \"endDate\": \"2025-03-22\",\r\n    \"userEmail\": \"carla@email.com\",\r\n    \"productId\": 6\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/reservations/save",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"reservations",
+										"save"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Mar 2025 18:11:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"path\": \"/reservations/save\",\n    \"message\": \"El producto no esta disponible para la fecha seleccionada\",\n    \"statusCode\": 400,\n    \"zonedDateTime\": \"2025-03-29T13:11:27.4597999-05:00\",\n    \"errors\": []\n}"
+						},
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n\r\n{\r\n    \"startDate\": \"2025-03-21\",\r\n    \"endDate\": \"2025-03-22\",\r\n    \"userEmail\": \"carla@email.com\",\r\n    \"productId\": 8\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/reservations/save",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"reservations",
+										"save"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Mar 2025 18:43:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 19,\n    \"startDate\": \"2025-03-21\",\n    \"endDate\": \"2025-03-22\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
